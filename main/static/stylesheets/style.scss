@@ -1,0 +1,141 @@
+body{
+    width: 100%;
+   
+    background: #1D1D1D;
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0;
+}
+.navbar{
+    width: 100%;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    
+    box-sizing: border-box;
+    .nav-logo{
+        display: flex;
+        width: 20%;
+        align-items: center;
+        justify-content: center;
+        
+        box-sizing: border-box;
+        gap: 8px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        img{
+            width: 38px;
+        }
+    }
+    .action{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+        box-sizing: border-box;
+        a.btn{
+            text-decoration: none;
+            padding: 10px 14px;
+            color: white;
+            background-blend-mode: normal;
+            width: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid #808080;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            &.btn-book{
+                background: #673ab7;
+                border: 1px solid #673ab7;
+            }
+
+        }
+    }
+}
+
+.main-body{
+    width: 100%;
+    height: calc(100% - 112px);
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    .booking-container{
+        width: 330px;
+        padding: 15px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .book-title-btn{
+            background: white;
+            color: black;
+            border-radius: 50px 50px;
+            display: flex;
+            gap: 8px;
+            padding: 10px 14px;
+            width: fit-content;
+            align-items: center;
+            justify-content: center;
+        }
+        h4{
+            text-align: center;
+            color: white;
+        }
+        .booking-form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            input{
+                padding: 15px 8px;
+                border: 1px solid #673ab7;
+                outline: none;
+                background: #29292a;
+                border-radius: 5px;
+                color: white;
+                &::placeholder{
+                    color: rgba(255,255,255,0.49);
+                }
+            }
+            input[type=number]{
+                &::-webkit-inner-spin-button{
+                    display: none;
+                }
+            }
+            button.book-btn{
+                padding: 15px 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
+                border: none;
+                color: white;
+                background: #673ab7;
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.footer{
+    height: 50px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.342);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    
+    
+    span{
+        color: white;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
+    <title>KKP Luggage</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="{% static 'images/logo.png' %}" alt="">
+            <h3>KKP Luggage</h3>
+        </div>
+        <div class="action">
+            <a href="#" class="btn btn-login">Login</a>
+            <a href="#" class="btn btn-book">Book Now</a>
+        </div>
+    </nav>
+
+    <div class="main-body">
+        {% block content %}{% endblock content %}
+    </div>
+
+    <footer class="footer">
+        <span>Copyright &cap; 2024, International KKP</span>
+    </footer>
+</body>
+</html>
