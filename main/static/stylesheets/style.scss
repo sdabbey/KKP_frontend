@@ -47,11 +47,17 @@ body{
             outline: none;
             box-shadow:0px 0px 1px 1px  #808080;
             font-weight: bold;
-            
+            white-space: nowrap;
             &.btn-book{
                 background: #673AB7;
                 border: 1px solid #673AB7;
                 box-shadow: none;
+            }
+            &.btn-download{
+                background: #673AB7;
+                border: 1px solid #673AB7;
+                box-shadow: none;
+                width: fit-content;
             }
 
         }
@@ -61,123 +67,347 @@ body{
 .main-body{
     width: 100%;
     height: calc(100% - 112px);
-
+   
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "Open Sans";
-    .booking-container{
-        width: 330px;
-        padding: 15px;
-
+    .main-container{
+        width: 80%;
+        height: 100%;
+        box-sizing: border-box;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        .book-title-btn{
-            background: white;
-            color: black;
-            border-radius: 50px 50px;
+       
+        .booking-container{
+            width: 330px;
+            padding: 15px;
+    
             display: flex;
-            gap: 8px;
-            padding: 10px 14px;
-            width: fit-content;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 2px solid #673AB7;
-            border-top: none;
-        }
-        h4,h6{
-            text-align: center;
-            color: white;
-        }
-        .booking-form{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-     
-            .input-group{
-                width: 100%;
+            .book-title-btn{
+                background: white;
+                color: black;
+                border-radius: 50px 50px;
                 display: flex;
-                flex-direction: column-reverse;
-                position: relative;
-                box-sizing: border-box;
-                transition: all .4s ease;
-                label{
-                    display: none;
-                    color: rgba(255, 255, 255, 0.767);
-                    font-size: .8em;
-                    padding: 0 .1rem;
-                    position: absolute;
-                    top: 0;
-                    box-sizing: border-box;
-                    margin-top: -.6rem;
-                    margin-left: 1rem;
-                    font-weight: bold;
-                    background: #29292A;
-                    transition: .4s all ease;
-                }
-                input{
-                    padding: 15px 8px;
-                    border: 1px solid #673AB7;
-                    
-                    outline: none;
-                    background: #29292a;
-                    border-radius: 6px;
-                    background-blend-mode: normal;
-                    color: white;
-                   
-                    &:focus + label, &:not(:placeholder-shown) ~ label{
-
-                            display: flex !important;
-                           
-                            
-                    }
-                    &:focus{
-                        &::placeholder{
-                            visibility: hidden;
-                        }
-                    } 
-                    &::placeholder{
-                        color: rgba(255,255,255,0.49);
-                    }
-                }
-                input[type=number]{
-                    &::-webkit-inner-spin-button{
-                        display: none;
-                    }
-                }
-            }
-            button.book-btn{
-                padding: 15px 8px;
-                display: flex;
+                gap: 8px;
+                padding: 10px 14px;
+                width: fit-content;
                 align-items: center;
                 justify-content: center;
-                border-radius: 6px;
-                border: none;
+                border: 2px solid #673AB7;
+                border-top: none;
+            }
+            h4,h6{
+                text-align: center;
                 color: white;
-                background: #673AB7;
-                font-weight: bold;
-                font-size: 14px;
+            }
+            .booking-form,.login-form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+         
+                .input-group{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    position: relative;
+                    box-sizing: border-box;
+                    transition: all .4s ease;
+                    label{
+                        display: none;
+                        color: rgba(255, 255, 255, 0.767);
+                        font-size: .8em;
+                        padding: 0 .1rem;
+                        position: absolute;
+                        top: 0;
+                        box-sizing: border-box;
+                        margin-top: -.6rem;
+                        margin-left: 1rem;
+                        font-weight: bold;
+                        background: #29292A;
+                        transition: .4s all ease;
+                    }
+                    input{
+                        padding: 15px 8px;
+                        border: 1px solid #673AB7;
+                        
+                        outline: none;
+                        background: #29292a;
+                        border-radius: 6px;
+                        background-blend-mode: normal;
+                        color: white;
+                       
+                        &:focus + label, &:not(:placeholder-shown) ~ label{
+    
+                                display: flex !important;
+                               
+                                
+                        }
+                        &:focus{
+                            &::placeholder{
+                                visibility: hidden;
+                            }
+                        } 
+                        &::placeholder{
+                            color: rgba(255,255,255,0.49);
+                        }
+                    }
+                    input[type=number]{
+                        &::-webkit-inner-spin-button{
+                            display: none;
+                        }
+                    }
+                }
+                .book-btn{
+                    padding: 15px 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 6px;
+                    border: none;
+                    color: white;
+                    background: #673AB7;
+                    font-weight: bold;
+                    font-size: 14px;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+            }
+            
+            .booking-ticket{
+                min-width: 500px;
+                
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                
+                .ticket-container{
+                    box-sizing: border-box;
+                    display: flex;
+                    gap: 15px;
+                    width: 100%;
+                    .QR-code-image{
+                        width: 268px;
+                        height: 268px;
+                        object-fit: contain;
+                    }
+                    .text-section{
+                        width: 60%;
+                      
+                        flex-direction: column;
+                        display: flex;
+                        padding: 0 .3rem;
+                        position: relative;
+                        box-sizing: border-box;
+                        
+                        .first-list{
+                            width: 100%;
+                            display: flex;
+                            gap: 8px;
+                            box-sizing: border-box;
+                            
+                            .tab{
+                                background: rgba(103,58,183,0.28);
+                                padding: .4rem .6rem;
+                                font-weight: bold;
+                                color: white;
+                                font-size: .7em;
+                                border-radius: 15px;
+                                white-space: nowrap;
+                            }
+                        }
+                        .second-list{
+                            display: flex;
+                            flex-direction: column;
+                           
+                            box-sizing: border-box;
+                            .user-code{
+                                font-size: 2.2rem;
+                                margin: .2rem 0;
+                                color: white;
+                            }
+                            p{
+                                font-weight: bold;
+                                color: white;
+                                margin: 0;
+                                font-size: .8em;
+                                line-height: 1.5rem;
+                            }
+                        }
+                        .action-section{
+                            width: 100%;
+                            display: flex;
+        
+                            position: absolute;
+                            bottom: 0;
+                            box-sizing: border-box;
+                            margin: 0;
+                            left: 0;
+                            padding: 0 0.3em;
+                            a.btn-download-ticket{
+                                width: 90%;
+                                display: flex;
+                                text-decoration: none;
+                                color: white;
+                                background-color: #673AB7;
+                                padding: 1rem 1.5rem;
+                                text-align: center;
+                                border-radius: 7px;
+                            }
+                        }
+                    }
+                }
+                .info-section{
+                    width: 100%;
+                    display: flex;
+                    margin-top: 5vh;
+                    gap: 20px;
+                    justify-content: center;
+                    align-items: center;
+                    height: 123px;
+                    border-radius: 15px;
+                    border: 1px dashed #ff0000c7;
+                    padding: 0 .5rem;
+                    background: rgba(239,13,13,0.04);
+                    background-blend-mode: normal;
+                    img{
+                        display: flex;
+                        width: 45px;
+                    }
+                    p{
+                        color: #FF1000;
+                        font-size: .9em;
+                    }
+                }
+            }
+            
+        }
+        .search-container{
+           
+            padding: .5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20%;
+            box-sizing: border-box;
+            form{
+                input{
+                    width: 535px;
+                    height: 55px;
+                    border-radius: 9px;
+                    background: #2d2d2d;
+                    outline: none;
+                    border: none;
+                    text-align: center;
+                    color: white;
+                    font-size: 1em;
+                    &::-webkit-search-cancel-button{
+                        display: none;
+                    }
+                    &::placeholder{
+                        color: white;
+                        font-weight: bold;
+                    }
+                    &:focus {
+                        &::placeholder{
+                        visibility: hidden;
+                        }
+                    }
+                }
             }
         }
-        .booking-ticket{
-            min-width: 500px;
-            
-            box-sizing: border-box;
+        .bookings-container{
+            width: 100%;
+            height: 79%;
+            padding: .5rem;
             display: flex;
             flex-direction: column;
-            
+            gap: 2rem;
+            box-sizing: border-box;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                width: 1rem;
+                height: 2rem;
+                background:#3a3a3a;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: rgba(103,58,183,0.28);
+                border-radius: 15px;
+            }
+            &::-webkit-scrollbar-track{
+                background:#3a3a3a;
+            }
             .ticket-container{
                 box-sizing: border-box;
                 display: flex;
                 gap: 15px;
                 width: 100%;
+                .menu{
+                    width: fit-content;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    align-items: flex-end;
+                    .menu-btn{
+                        width: 50px;
+                        height: 50px;
+                        background: #3A3A3A;
+                        border-radius: 13px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                       
+                        img{
+                            width: 30px;
+                            object-fit: contain;
+                        }
+                    }
+                    .dropmenu{
+                       
+                        
+                        width: 150px;
+                        height: 130px;
+                        padding: .5rem 0;
+                        border-radius: 16px;
+                        background: #3a3a3a;
+                        background-blend-mode: normal;
+                        display: flex;
+                        margin-top: 1rem;
+                        align-items: center;
+                        justify-content: space-around;
+                        flex-direction: column;
+                        box-sizing: border-box;
+                        
+                        a{
+                            text-decoration: none;
+                            width: 90%;
+                            box-sizing: border-box;
+                            padding: .7rem .9rem;
+                            border-radius: 10px;
+                            color: white;
+                            text-align: center;
+                            font-weight: bold;
+                        }
+                        .btn-delete{
+                            background: #FF1000;
+                        }
+                        .btn-download{
+                            background: #673AB7;
+                        }
+                    }
+                }
                 .QR-code-image{
-                    width: 268px;
-                    height: 268px;
+                    width: 208px;
+                    height: 208px;
                     object-fit: contain;
                 }
                 .text-section{
@@ -223,132 +453,7 @@ body{
                             line-height: 1.5rem;
                         }
                     }
-                    .action-section{
-                        width: 100%;
-                        display: flex;
-    
-                        position: absolute;
-                        bottom: 0;
-                        box-sizing: border-box;
-                        margin: 0;
-                        left: 0;
-                        padding: 0 0.3em;
-                        a.btn-download-ticket{
-                            width: 90%;
-                            display: flex;
-                            text-decoration: none;
-                            color: white;
-                            background-color: #673AB7;
-                            padding: 1rem 1.5rem;
-                            text-align: center;
-                            border-radius: 7px;
-                        }
-                    }
-                }
-            }
-            .info-section{
-                width: 100%;
-                display: flex;
-                margin-top: 5vh;
-                gap: 20px;
-                justify-content: center;
-                align-items: center;
-                height: 123px;
-                border-radius: 15px;
-                border: 1px dashed #ff0000c7;
-                padding: 0 .5rem;
-                background: rgba(239,13,13,0.04);
-                background-blend-mode: normal;
-                img{
-                    display: flex;
-                    width: 45px;
-                }
-                p{
-                    color: #FF1000;
-                    font-size: .9em;
-                }
-            }
-        }
-        
-    }
-    .bookings-container{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        .ticket-container{
-            box-sizing: border-box;
-            display: flex;
-            gap: 15px;
-            width: 100%;
-            .QR-code-image{
-                width: 268px;
-                height: 268px;
-                object-fit: contain;
-            }
-            .text-section{
-                width: 60%;
-              
-                flex-direction: column;
-                display: flex;
-                padding: 0 .3rem;
-                position: relative;
-                box-sizing: border-box;
-                
-                .first-list{
-                    width: 100%;
-                    display: flex;
-                    gap: 8px;
-                    box-sizing: border-box;
-                    
-                    .tab{
-                        background: rgba(103,58,183,0.28);
-                        padding: .4rem .6rem;
-                        font-weight: bold;
-                        color: white;
-                        font-size: .7em;
-                        border-radius: 15px;
-                        white-space: nowrap;
-                    }
-                }
-                .second-list{
-                    display: flex;
-                    flex-direction: column;
-                   
-                    box-sizing: border-box;
-                    .user-code{
-                        font-size: 2.2rem;
-                        margin: .2rem 0;
-                        color: white;
-                    }
-                    p{
-                        font-weight: bold;
-                        color: white;
-                        margin: 0;
-                        font-size: .8em;
-                        line-height: 1.5rem;
-                    }
-                }
-                .action-section{
-                    width: 100%;
-                    display: flex;
-
-                    position: absolute;
-                    bottom: 0;
-                    box-sizing: border-box;
-                    margin: 0;
-                    left: 0;
-                    padding: 0 0.3em;
-                    a.btn-download-ticket{
-                        width: 90%;
-                        display: flex;
-                        text-decoration: none;
-                        color: white;
-                        background-color: #673AB7;
-                        padding: 1rem 1.5rem;
-                        text-align: center;
-                        border-radius: 7px;
-                    }
+                  
                 }
             }
         }

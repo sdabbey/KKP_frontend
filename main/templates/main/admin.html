@@ -18,7 +18,7 @@
         </div>
         <div class="action">
             
-            <a href="#" class="btn btn-book">Download Dataset</a>
+            <a href="#" class="btn btn-download">Download Dataset</a>
         </div>
     </nav>
 
@@ -26,14 +26,14 @@
         <div class="main-container">
             <div class="search-container">
                 <form action="">
-                    <input type="search" name="searchbox" id="">
+                    <input type="search" name="searchbox" id="" placeholder="Search Booking Code" autocomplete="off">
                 </form>
             </div>
             
             <div class="bookings-container">
                 <div class="ticket-container">
                     <div class="menu">
-                        <img src="{% static 'images/more.png' %}" alt="">
+                        <span class="menu-btn"><img src="{% static 'images/more.png' %}" alt=""></span>
                         <div class="dropmenu">
                             <a href="#" class="btn-delete">Delete ticket</a>
                             <a href="#" class="btn-download">Download</a>
@@ -52,15 +52,12 @@
                             <p id="luggage_number">15 luggage items</p>
                             <p id="booking-time">Booking: time: 12:40am</p>
                         </div>
-                        <div class="action-section">
-                            <a href="#" class="btn btn-download-ticket">Download Booking Ticket</a>
-                        </div>
+                       
                     </div>
                 </div>
-
                 <div class="ticket-container">
                     <div class="menu">
-                        <img src="{% static 'images/more.png' %}" alt="">
+                        <span class="menu-btn"><img src="{% static 'images/more.png' %}" alt=""></span>
                         <div class="dropmenu">
                             <a href="#" class="btn-delete">Delete ticket</a>
                             <a href="#" class="btn-download">Download</a>
@@ -79,12 +76,10 @@
                             <p id="luggage_number">15 luggage items</p>
                             <p id="booking-time">Booking: time: 12:40am</p>
                         </div>
-                        <div class="action-section">
-                            <a href="#" class="btn btn-download-ticket">Download Booking Ticket</a>
-                        </div>
+                       
                     </div>
                 </div>
-    
+            
             </div>
           </div>
     </div>

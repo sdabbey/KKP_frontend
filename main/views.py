@@ -11,3 +11,7 @@ def bookingsuccess(request):
 
 def adminpage(request):
     return render(request, "main/admin.html")
+
+
+def loginpage(request):
+    return render(request, "main/login.html")

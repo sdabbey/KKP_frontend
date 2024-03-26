@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+  <div class="booking-container">
+    <span class="book-title-btn"><img src="{% static 'images/sparkling.png' %}" alt=""> Get Booking Ticket <img src="{% static 'images/suitcase.png' %}" alt=""></span>
+    <h4>Welcome Back</h4>
+    <div class="login-form">
+        <div class="input-group">
+          <input type="email" name="email" id="email" placeholder="Email" autocomplete="off">
+          <label for="email">Email</label>
+        </div>
+
+       <div class="input-group">
+         <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+         <label for="password">Password</label>
+       </div>
+        
+      
+        <button type="submit" class="book-btn">Login</button>
+    </div>
+  </div>
+{% endblock content %}
