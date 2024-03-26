@@ -2,15 +2,41 @@
 {% load static %}
 {% block content %}
   <div class="booking-container">
-    <span class="book-title-btn"><img src="{% static 'images/sparkling.png' %}" alt=""> Booking</span>
+    <span class="book-title-btn"><img src="{% static 'images/sparkling.png' %}" alt=""> Booking <img src="{% static 'images/suitcase.png' %}" alt=""></span>
     <h4>Book a Customer</h4>
     <div class="booking-form">
-        <input type="text" name="name" id="name" placeholder="Full Name">
-        <input type="number" name="index_number" id="index_number" placeholder="Index Number">
-        <input type="number" name="phone_number" id="phone_number" placeholder="Phone Number">
-        <input type="number" name="phone_number2" id="phone_number2" placeholder="2nd Phone Number(Optional)">
-        <input type="text" name="location" id="location" placeholder="Location">
-        <input type="number" name="luggage_number" id="luggage_number" placeholder="Number of Luggages">
+        <div class="input-group">
+
+          <input type="text" name="name" id="name" placeholder="Full Name" autocomplete="off">
+          <label for="name">Full Name</label>
+        </div>
+       <div class="input-group">
+         <input type="number" name="index_number" id="index_number" placeholder="Index Number" autocomplete="off">
+         <label for="index_number">Index Number</label>
+       </div>
+        
+       <div class="input-group">
+        <input type="number" name="phone_number" id="phone_number" placeholder="Phone Number" autocomplete="off">
+        <label for="phone_number">Phone Number</label>
+       </div>
+        
+        <div class="input-group">
+          <input type="number" name="phone_number2" id="phone_number2" placeholder="2nd Phone Number(Optional)" autocomplete="off">
+          <label for="phone_number2">2nd Phone Number(Optional)</label>
+        
+        </div>
+       
+        <div class="input-group">
+          <input type="text" name="location" id="location" placeholder="Location" autocomplete="off">
+          <label for="location">Location</label>
+          
+        </div>
+        
+        <div class="input-group">
+          <input type="number" name="luggage_number" id="luggage_number" placeholder="Number of Luggages" autocomplete="off">
+          <label for="luggage_number">Number of Luggages</label>
+        
+        </div>
         <button type="submit" class="book-btn">Book Customer</button>
     </div>
   </div>

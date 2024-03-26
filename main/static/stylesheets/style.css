@@ -1,6 +1,7 @@
 body {
   width: 100%;
-  background: #1D1D1D;
+  font-family: "Open Sans";
+  background: #29292A;
   box-sizing: border-box;
   height: 100vh;
   margin: 0;
@@ -13,6 +14,7 @@ body {
   align-items: center;
   justify-content: space-between;
   color: white;
+  font-family: "Open Sans";
   box-sizing: border-box;
 }
 .navbar .nav-logo {
@@ -22,7 +24,6 @@ body {
   justify-content: center;
   box-sizing: border-box;
   gap: 8px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .navbar .nav-logo img {
   width: 38px;
@@ -44,13 +45,14 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  border: 1px solid #808080;
+  outline: none;
+  box-shadow: 0px 0px 1px 1px #808080;
   font-weight: bold;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .navbar .action a.btn.btn-book {
-  background: #673ab7;
-  border: 1px solid #673ab7;
+  background: #673AB7;
+  border: 1px solid #673AB7;
+  box-shadow: none;
 }
 
 .main-body {
@@ -60,7 +62,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Open Sans";
 }
 .main-body .booking-container {
   width: 330px;
@@ -81,8 +83,10 @@ body {
   width: fit-content;
   align-items: center;
   justify-content: center;
+  border: 2px solid #673AB7;
+  border-top: none;
 }
-.main-body .booking-container h4 {
+.main-body .booking-container h4, .main-body .booking-container h6 {
   text-align: center;
   color: white;
 }
@@ -90,23 +94,58 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
-.main-body .booking-container .booking-form input {
+.main-body .booking-container .booking-form .input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+.main-body .booking-container .booking-form .input-group label {
+  display: none;
+  color: rgba(255, 255, 255, 0.767);
+  font-size: 0.8em;
+  padding: 0 0.1rem;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  margin-top: -0.6rem;
+  margin-left: 1rem;
+  font-weight: bold;
+  background: #29292A;
+  transition: 0.4s all ease;
+}
+.main-body .booking-container .booking-form .input-group input {
   padding: 15px 8px;
-  border: 1px solid #673ab7;
+  border: 1px solid #673AB7;
   outline: none;
   background: #29292a;
-  border-radius: 5px;
+  border-radius: 6px;
+  background-blend-mode: normal;
   color: white;
 }
-.main-body .booking-container .booking-form input::-moz-placeholder {
+.main-body .booking-container .booking-form .input-group input:not(:-moz-placeholder-shown) ~ label {
+  display: flex !important;
+}
+.main-body .booking-container .booking-form .input-group input:focus + label, .main-body .booking-container .booking-form .input-group input:not(:placeholder-shown) ~ label {
+  display: flex !important;
+}
+.main-body .booking-container .booking-form .input-group input:focus::-moz-placeholder {
+  visibility: hidden;
+}
+.main-body .booking-container .booking-form .input-group input:focus::placeholder {
+  visibility: hidden;
+}
+.main-body .booking-container .booking-form .input-group input::-moz-placeholder {
   color: rgba(255, 255, 255, 0.49);
 }
-.main-body .booking-container .booking-form input::placeholder {
+.main-body .booking-container .booking-form .input-group input::placeholder {
   color: rgba(255, 255, 255, 0.49);
 }
-.main-body .booking-container .booking-form input[type=number]::-webkit-inner-spin-button {
+.main-body .booking-container .booking-form .input-group input[type=number]::-webkit-inner-spin-button {
   display: none;
 }
 .main-body .booking-container .booking-form button.book-btn {
@@ -117,9 +156,187 @@ body {
   border-radius: 6px;
   border: none;
   color: white;
-  background: #673ab7;
+  background: #673AB7;
   font-weight: bold;
   font-size: 14px;
+}
+.main-body .booking-container .booking-ticket {
+  min-width: 500px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.main-body .booking-container .booking-ticket .ticket-container {
+  box-sizing: border-box;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+.main-body .booking-container .booking-ticket .ticket-container .QR-code-image {
+  width: 268px;
+  height: 268px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section {
+  width: 60%;
+  flex-direction: column;
+  display: flex;
+  padding: 0 0.3rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .first-list {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  box-sizing: border-box;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .first-list .tab {
+  background: rgba(103, 58, 183, 0.28);
+  padding: 0.4rem 0.6rem;
+  font-weight: bold;
+  color: white;
+  font-size: 0.7em;
+  border-radius: 15px;
+  white-space: nowrap;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .second-list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .second-list .user-code {
+  font-size: 2.2rem;
+  margin: 0.2rem 0;
+  color: white;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .second-list p {
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  font-size: 0.8em;
+  line-height: 1.5rem;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .action-section {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  margin: 0;
+  left: 0;
+  padding: 0 0.3em;
+}
+.main-body .booking-container .booking-ticket .ticket-container .text-section .action-section a.btn-download-ticket {
+  width: 90%;
+  display: flex;
+  text-decoration: none;
+  color: white;
+  background-color: #673AB7;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  border-radius: 7px;
+}
+.main-body .booking-container .booking-ticket .info-section {
+  width: 100%;
+  display: flex;
+  margin-top: 5vh;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 123px;
+  border-radius: 15px;
+  border: 1px dashed rgba(255, 0, 0, 0.7803921569);
+  padding: 0 0.5rem;
+  background: rgba(239, 13, 13, 0.04);
+  background-blend-mode: normal;
+}
+.main-body .booking-container .booking-ticket .info-section img {
+  display: flex;
+  width: 45px;
+}
+.main-body .booking-container .booking-ticket .info-section p {
+  color: #FF1000;
+  font-size: 0.9em;
+}
+.main-body .bookings-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main-body .bookings-container .ticket-container {
+  box-sizing: border-box;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+.main-body .bookings-container .ticket-container .QR-code-image {
+  width: 268px;
+  height: 268px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main-body .bookings-container .ticket-container .text-section {
+  width: 60%;
+  flex-direction: column;
+  display: flex;
+  padding: 0 0.3rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.main-body .bookings-container .ticket-container .text-section .first-list {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  box-sizing: border-box;
+}
+.main-body .bookings-container .ticket-container .text-section .first-list .tab {
+  background: rgba(103, 58, 183, 0.28);
+  padding: 0.4rem 0.6rem;
+  font-weight: bold;
+  color: white;
+  font-size: 0.7em;
+  border-radius: 15px;
+  white-space: nowrap;
+}
+.main-body .bookings-container .ticket-container .text-section .second-list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.main-body .bookings-container .ticket-container .text-section .second-list .user-code {
+  font-size: 2.2rem;
+  margin: 0.2rem 0;
+  color: white;
+}
+.main-body .bookings-container .ticket-container .text-section .second-list p {
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  font-size: 0.8em;
+  line-height: 1.5rem;
+}
+.main-body .bookings-container .ticket-container .text-section .action-section {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  margin: 0;
+  left: 0;
+  padding: 0 0.3em;
+}
+.main-body .bookings-container .ticket-container .text-section .action-section a.btn-download-ticket {
+  width: 90%;
+  display: flex;
+  text-decoration: none;
+  color: white;
+  background-color: #673AB7;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  border-radius: 7px;
 }
 
 .footer {
