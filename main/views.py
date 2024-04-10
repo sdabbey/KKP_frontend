@@ -9,10 +9,11 @@ from django.contrib import messages
 def bookingpage(request):
     return render(request, "main/bookingpage.html")
 
-
+@login_required(login_url="/login/")
 def bookingsuccess(request):
     return render(request, "main/bookingsuccess.html")
 
+@login_required(login_url="/login/")
 def adminpage(request):
     return render(request, "main/admin.html")
 
