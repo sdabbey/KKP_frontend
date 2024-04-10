@@ -745,7 +745,9 @@ body {
     text-decoration: none;
   }
   .main-body .main-container .booking-container .booking-ticket-suc {
-    width: 100% !important;
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -757,13 +759,12 @@ body {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    width: 100% !important;
+    width: 100%;
     padding: 0;
     margin: 0;
   }
   .main-body .main-container .booking-container .booking-ticket-suc .ticket-container .image-container {
     width: 45%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -773,7 +774,6 @@ body {
   }
   .main-body .main-container .booking-container .booking-ticket-suc .ticket-container .image-container .QR-code-image {
     width: 100%;
-    height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
     margin: 0;
