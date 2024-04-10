@@ -4,7 +4,8 @@
   <div class="booking-container">
     <span class="book-title-btn"><img src="{% static 'images/sparkling.png' %}" alt=""> Get Booking Ticket <img src="{% static 'images/suitcase.png' %}" alt=""></span>
     <h4>Welcome Back</h4>
-    <div class="login-form">
+    <form class="login-form" method="post">
+      {% csrf_token %}
         <div class="input-group">
           <input type="email" name="email" id="email" placeholder="Email" autocomplete="off">
           <label for="email">Email</label>
@@ -17,6 +18,6 @@
         
       
         <button type="submit" class="book-btn">Login</button>
-    </div>
+      </form>
   </div>
 {% endblock content %}

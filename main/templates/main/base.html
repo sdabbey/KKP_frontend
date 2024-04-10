@@ -7,22 +7,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
     <title>KKP Luggage</title>
 </head>
-<body>
+<body class="body-container">
     <nav class="navbar">
-        <div class="nav-logo">
+        <a href="{% url 'bookingpage' %}" class="nav-logo">
             <img src="{% static 'images/logo.png' %}" alt="">
             <h3>KKP Luggage</h3>
-        </div>
+        </a>
         <div class="action">
-            <a href="{% url 'login' %}" class="btn btn-login">Login</a>
-            <a href="url" class="btn btn-book">Book Now</a>
+            {% if request.user.is_authenticated %}
+                {% if request.path != '/dashboard/' %}
+                    <a href="{% url 'adminpage' %}" class="btn btn-book">Dashboard</a>
+                {% endif %}
+                {% if request.path == '/' or request.path == '/dashboard/' %}
+                   
+                {% else %}
+                    <a href="{% url 'bookingpage' %}" class="btn btn-book">Book Now</a>
+                {% endif %}
+                {% if request.path == '/dashboard/' %}
+                    <a href="#" class="btn btn-download">Download Dataset</a>
+                {% endif %}
+                <a href="{% url 'logout' %}" class="btn btn-login">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+            {% endif %}
         </div>
+         <!-- Nav Trigger -->
+        <div class="nav-trigger" id="nav-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
     </nav>
 
+
+   
+   
     <div class="main-body">
+         <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h1 class="title">KKP Luggage</h1>
+            <div class="list-tabs">
+                <a href="#" class="tab active">Booking</a>
+                <a href="#" class="tab">Dashboard</a>
+                <a href="#" class="tab">Download Dataset</a>
+ 
+            </div>
+            <div class="action">
+                
+                <a href="#" class="btn logout">Logout</a>
+            </div>
+        </div>
+
         <div class="main-container">
             {% block content %}{% endblock content %}
         </div>
@@ -31,5 +71,16 @@
     <footer class="footer">
         <span>Copyright &copy; 2024, International KKP</span>
     </footer>
+
+
+
+    <script>
+        const navTrigger = document.getElementById("nav-trigger")
+        const sidebar = document.getElementById("sidebar")
+        navTrigger.addEventListener("click", ()=>{
+            navTrigger.classList.toggle("active")
+            sidebar.classList.toggle("active")
+        })
+    </script>
 </body>
 </html>

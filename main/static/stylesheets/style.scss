@@ -4,7 +4,12 @@ body{
     background: #29292A;
     box-sizing: border-box;
     height: 100vh;
+    overflow: hidden;
+   
     margin: 0;
+   
+    display: flex;
+    flex-direction: column;
 }
 .navbar{
     width: 100%;
@@ -15,12 +20,14 @@ body{
     color: white;
     font-family: "Open Sans";
     box-sizing: border-box;
+    
     .nav-logo{
         display: flex;
         width: 20%;
         align-items: center;
         justify-content: center;
-        
+        text-decoration: none;
+        color: white;
         box-sizing: border-box;
         gap: 8px;
         
@@ -62,17 +69,27 @@ body{
 
         }
     }
+    .nav-trigger{
+        display: none;
+    }
 }
+
 
 .main-body{
     width: 100%;
     height: calc(100% - 112px);
+    overflow: hidden;
+   
    
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "Open Sans";
+    position: relative;
+    .sidebar{
+        display: none;
+    }
     .main-container{
         width: 80%;
         height: 100%;
@@ -80,22 +97,24 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-       
+        flex-direction: column;
         .booking-container{
-            width: 330px;
+            width: 100%;
+            height: 100%;
             padding: 15px;
-    
+           
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            box-sizing: border-box;
+            justify-content: space-around;
             .book-title-btn{
                 background: white;
                 color: black;
                 border-radius: 50px 50px;
                 display: flex;
                 gap: 8px;
-                padding: 10px 14px;
+                padding: 7px 14px;
                 width: fit-content;
                 align-items: center;
                 justify-content: center;
@@ -105,13 +124,17 @@ body{
             h4,h6{
                 text-align: center;
                 color: white;
+                margin: .3rem;
             }
             .booking-form,.login-form{
-                width: 100%;
+                width: 330px;
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
-         
+                gap: 12px;
+                min-height: 60%;
+                height: fit-content;
+                
+                box-sizing: border-box;
                 .input-group{
                     width: 100%;
                     display: flex;
@@ -179,27 +202,38 @@ body{
                     text-decoration: none;
                 }
             }
-            
-            .booking-ticket{
+            .login-form{
+                margin-top: 2%;
+            }
+            .booking-ticket-suc{
                 min-width: 500px;
-                
+                width: min-content;
+                height: min-content;
+                margin-top: .5rem;
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
-                
+                align-items: center;
+                justify-content: center;
                 .ticket-container{
                     box-sizing: border-box;
                     display: flex;
                     gap: 15px;
                     width: 100%;
-                    .QR-code-image{
-                        width: 268px;
-                        height: 268px;
-                        object-fit: contain;
+                    .image-container{
+                            width: 268px;
+                            height: 90%;
+                            box-sizing: border-box;
+                           
+                        .QR-code-image{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
                     }
                     .text-section{
                         width: 60%;
-                      
+                        height: 90%;
                         flex-direction: column;
                         display: flex;
                         padding: 0 .3rem;
@@ -266,12 +300,13 @@ body{
                 .info-section{
                     width: 100%;
                     display: flex;
-                    margin-top: 5vh;
+                    margin-top: 2vh;
                     gap: 20px;
                     justify-content: center;
                     align-items: center;
-                    height: 123px;
+                    height: 80px;
                     border-radius: 15px;
+                    box-sizing: border-box;
                     border: 1px dashed #ff0000c7;
                     padding: 0 .5rem;
                     background: rgba(239,13,13,0.04);
@@ -366,9 +401,9 @@ body{
                         justify-content: center;
                         cursor: pointer;
                        
-                        img{
-                            width: 30px;
-                            object-fit: contain;
+                        i.bx{
+                            font-size: 30px;
+                            color: white;
                         }
                     }
                     .dropmenu{
@@ -381,12 +416,16 @@ body{
                         background: #3a3a3a;
                         background-blend-mode: normal;
                         display: flex;
+
+                        
+                        visibility: hidden;
+                        
                         margin-top: 1rem;
                         align-items: center;
                         justify-content: space-around;
                         flex-direction: column;
                         box-sizing: border-box;
-                        
+                       
                         a{
                             text-decoration: none;
                             width: 90%;
@@ -396,6 +435,9 @@ body{
                             color: white;
                             text-align: center;
                             font-weight: bold;
+                            i.bx{
+                                display: none;
+                            }
                         }
                         .btn-delete{
                             background: #FF1000;
@@ -472,5 +514,606 @@ body{
     span{
         color: white;
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+   
+   
+    .navbar{
+        .nav-logo{
+            h3{
+                display: none;
+            }
+        }
+        .action{
+            display: none;
+        }
+        .nav-trigger{
+            width: 4rem;
+            box-sizing: border-box;
+            padding: 1rem;
+            height: 4rem;
+            margin-left: auto;
+            right: 0;
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: .4s ease;
+            &.active{
+                transform: translateX(-10%);
+                span{
+                    border-radius: 5px;
+                    width: 60%;
+                    height: 10%;
+                    background:#673AB7;
+                    display: flex;
+                    align-self: flex-end;
+                    margin: .2rem;
+                    
+                    transition: .4s ease;
+                    &:nth-child(1){
+                        width: 100%;
+                        transform: rotate(45deg) translateX(25%);
+                    
+                    }
+                    &:nth-child(2){
+                        width: 75%;
+                        display: none;
+                        transform: rotate(-45deg);
+                    }
+                    &:nth-child(3){
+                        width: 100%;
+                       
+                        transform: rotate(-40deg) translateX(20%);
+                    }
+                    
+                }
+            }
+            span{
+                border-radius: 5px;
+                width: 60%;
+                height: 10%;
+                border: 1px solid #ff3f3f4f;
+                background: rgb(103,58,183);
+                background: linear-gradient(90deg, rgba(103,58,183,1) 0%, rgba(103,58,183,1) 34%, rgba(62,0,69,1) 100%);
+                display: flex;
+                align-self: flex-end;
+                margin: .2rem;
+                transition: .4s ease;
+                position: relative;
+                &:nth-child(1){
+                    width: 100%;
+                }
+                &:nth-child(2){
+                    width: 75%;
+                    display: none;
+                   
+                }
+                &:nth-child(3){
+                    width: 100%;
+                    
+                }
+                
+            }
+        }
+    }
+    .main-body{
+        .sidebar{
+            position:absolute;
+           
+            width: 250px;
+            height: 100%;
+            bottom: 0;
+            right: -250px;
+            background-color: #2d2d2d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2% 0 0 0;
+            box-sizing: border-box;
+            justify-content: space-around;
+            z-index: 2;
+            transition: .4s ease;
+            box-shadow: 2px 2px 13px 1px rgba(0, 0, 0, 0.205);
+            &.active{
+                right: 0;
+            }
+            .title{
+                width: 100%;
+                height: 10%;
+                color: white;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .list-tabs{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                min-height: 40%;
+                align-items: center;
+                gap: 10%;
+                padding: 2rem;
+               
+                box-sizing: border-box;
+                .tab{
+                    text-decoration: none;
+                    color: white;
+                    border-radius: 6px;
+                    padding: .7rem 1.2rem;
+                    width: 90%;
+                    box-sizing: border-box;
+                    text-align: center;
+                    font-family: "Inter", sans-serif;
+                    &.active{
+                        
+                        background: #673AB7;
+                        border: 1px solid #673AB7;
+                    }
+                }
+            }
+            .action{
+                width: 100%;
+                box-sizing: border-box;
+                height: 20%;
+               
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+                a.logout{
+                    background: #FFD3D3;
+                    color: #FF3F3F;
+                    text-decoration: none;
+                    width: 90%;
+                    text-align: center;
+                    padding: .7rem 1.2rem;
+                    border-radius: 5px;
+                    border: 1px solid #FF3F3F;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .main-container{
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
+            .booking-container{
+                height: 100%;
+                width: 100%;
+                padding:15px;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+                justify-content: flex-start !important;
+                .book-title-btn{
+                   font-size: .9em;
+                    
+                    padding: 8px 12px;
+                    img:first-child{
+                        width: 14px;
+                    }
+                    img:last-child{
+                        width: 18px;
+                    }
+                   
+                }
+                h4,h6{
+                    text-align: center;
+                    color: white;
+                    margin: 10px;
+                }
+                .booking-form,.login-form{
+                    width: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                   
+                    box-sizing: border-box;
+                    .input-group{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column-reverse;
+                        position: relative;
+                        box-sizing: border-box;
+                        transition: all .4s ease;
+                        label{
+                            display: none;
+                            color: rgba(255, 255, 255, 0.767);
+                            font-size: .8em;
+                            padding: 0 .1rem;
+                            position: absolute;
+                            top: 0;
+                            box-sizing: border-box;
+                            margin-top: -.6rem;
+                            margin-left: 1rem;
+                            font-weight: bold;
+                            background: #29292A;
+                            transition: .4s all ease;
+                        }
+                        input{
+                            padding: 15px 8px;
+                            border: 1px solid #673AB7;
+                            
+                            outline: none;
+                            background: #29292a;
+                            border-radius: 6px;
+                            background-blend-mode: normal;
+                            color: white;
+                           
+                            &:focus + label, &:not(:placeholder-shown) ~ label{
+        
+                                    display: flex !important;
+                                   
+                                    
+                            }
+                            &:focus{
+                                &::placeholder{
+                                    visibility: hidden;
+                                }
+                            } 
+                            &::placeholder{
+                                color: rgba(255,255,255,0.49);
+                            }
+                        }
+                        input[type=number]{
+                            &::-webkit-inner-spin-button{
+                                display: none;
+                            }
+                        }
+                    }
+                    .book-btn{
+                        padding: 15px 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 6px;
+                        border: none;
+                        color: white;
+                        background: #673AB7;
+                        font-weight: bold;
+                        font-size: 14px;
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                }
+                
+                .booking-ticket-suc{
+                    width:100% !important;
+                   
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .ticket-container{
+                        box-sizing: border-box;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        width: 100% !important;
+                        padding: 0;
+                        margin: 0;
+                        
+                        .image-container{
+                            width: 45%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                          
+                            box-sizing: border-box;
+                            padding: 0;
+                            left: 0;
+                            .QR-code-image{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                margin: 0;
+                                padding: 0;
+                                left: 0;
+                               
+                                box-sizing: border-box;
+                            }
+                        }
+                        .text-section{
+                            width: 55%;
+                            
+                            flex-direction: column;
+                            display: flex;
+                            padding: 0 .3rem;
+                            position: relative;
+                            box-sizing: border-box;
+                            
+                            .first-list{
+                                width: 100%;
+                                display: flex;
+                                gap: 8px;
+                                box-sizing: border-box;
+                                flex-wrap: wrap;
+                                .tab{
+                                    background: rgba(103,58,183,0.28);
+                                    padding: .4rem .6rem;
+                                    font-weight: bold;
+                                    color: white;
+                                    font-size: .5em;
+                                    border-radius: 15px;
+                                    white-space: wrap;
+                                    box-sizing: border-box;
+                                }
+                            }
+                            .second-list{
+                                display: flex;
+                                flex-direction: column;
+                                width: 100%;
+                                overflow: hidden;
+                                box-sizing: border-box;
+                                .user-code{
+                                    width: 100%;
+                                    box-sizing: border-box;
+                                    font-size: 1.2rem;
+                                    margin: .2rem 0;
+                                    color: white;
+                                }
+                                p{
+                                    font-weight: bold;
+                                    color: white;
+                                    margin: 0;
+                                    font-size: .5em;
+                                    line-height: 1rem;
+                                }
+                            }
+                            .action-section{
+                                width: 100%;
+                                display: flex;
+                                height: fit-content;
+                                position: relative;
+                                bottom: 0;
+                                box-sizing: border-box;
+                                margin: 0;
+                                left: 0;
+                                padding:0.3em 0;
+                                a.btn-download-ticket{
+                                    width: 90%;
+                                    font-size: .7em;
+                                    display: flex;
+                                    text-decoration: none;
+                                    color: white;
+                                    background-color: #673AB7;
+                                    padding: .7rem 1rem;
+                                    text-align: center;
+                                    align-items: center;
+                                    justify-content:center;
+                                    border-radius: 7px;
+                                }
+                            }
+                        }
+                    }
+                    .info-section{
+                        width: 95%;
+                        display: flex;
+                        margin-top: 5vh;
+                        gap: 20px;
+                        justify-content: center;
+                        align-items: center;
+                        height: 103px;
+                        border-radius: 15px;
+                        border: 1px dashed #ff0000c7;
+                        padding: 0 .5rem;
+                        background: rgba(239,13,13,0.04);
+                        background-blend-mode: normal;
+                        img{
+                            display: flex;
+                            width: 45px;
+                        }
+                        p{
+                            color: #FF1000;
+                            font-size: .7em;
+                        }
+                    }
+                }
+                
+            }
+            .search-container{
+               
+                height: fit-content;
+                width: 100%;
+                
+                
+                form{
+                    width: 95%;
+                    input{
+                        width: 100%;
+                        height: 55px;
+                        border-radius: 9px;
+                        background: #2d2d2d;
+                        outline: none;
+                        border: none;
+                        text-align: center;
+                        color: white;
+                        font-size: 1em;
+                        &::-webkit-search-cancel-button{
+                            display: none;
+                        }
+                        &::placeholder{
+                            color: white;
+                            font-weight: bold;
+                        }
+                        &:focus {
+                            &::placeholder{
+                            visibility: hidden;
+                            }
+                        }
+                    }
+                }
+            }
+            .bookings-container{
+              
+                width: 100%;
+                height: 79%;
+                padding: .5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                box-sizing: border-box;
+                overflow-y: scroll;
+                &::-webkit-scrollbar{
+                    width: .5rem;
+                    height: 2rem;
+                    background:#3a3a3a;
+                }
+                &::-webkit-scrollbar-thumb{
+                    background: rgba(103,58,183,0.28);
+                    border-radius: 15px;
+                }
+                &::-webkit-scrollbar-track{
+                    background:#3a3a3a;
+                }
+                .ticket-container{
+                    box-sizing: border-box;
+                    display: flex;
+                    gap: 0px;
+                    width: 100%;
+                    border: 1px solid #683ab76b;
+                    border-radius: 5px;
+                    padding: .2rem;
+                    position: relative;
+                    .menu{
+                        width: fit-content;
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                      
+                        
+                        align-items: flex-start;
+                        .menu-btn{
+                            width: 36px;
+                            height: 36px;
+                            background: #3A3A3A;
+                            border-radius: 4px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            text-align: center;
+                            i.bx{
+                                font-size: 26px;
+                                color: white;
+                            }
+                        }
+                        .dropmenu{
+                           
+                            
+                            width: 100%;
+                            height: 100%;
+                            padding: .5rem;
+                            border-radius: 16px;
+                            background:transparent;
+                            background-blend-mode: normal;
+                            display: flex;
+                            gap: 10px;
+                            
+                            visibility: hidden;
+                            
+                            margin-top: .5rem;
+                            align-items: center;
+                            justify-content: space-between;
+                            flex-direction: column;
+                            box-sizing: border-box;
+                           
+                            a{
+                                text-decoration: none;
+                                width: 90%;
+                                box-sizing: border-box;
+                                padding: .7rem 1rem;
+                                border-radius: 10px;
+                                color: white;
+                                text-align: center;
+                                font-weight: bold;
+                                span{
+                                    display: none;
+                                }
+                                i.bx{
+                                    display: flex;
+                                    font-size: 20px;
+                                }
+                            }
+                            .btn-delete{
+                                background: #FF1000;
+                            }
+                            .btn-download{
+                                background: #673AB7;
+                            }
+                        }
+                    }
+                    .QR-code-image{
+                      
+                        width: 40%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                    .text-section{
+                        width: 60%;
+                        
+                        flex-direction: column;
+                        display: flex;
+                        padding: 0 .3rem;
+                        position: relative;
+                        box-sizing: border-box;
+                        
+                        .first-list{
+                            width: 100%;
+                            display: flex;
+                            gap: 8px;
+                            flex-wrap: wrap;
+                            box-sizing: border-box;
+                            
+                            .tab{
+                                background: rgba(103,58,183,0.28);
+                                padding: .4rem .6rem;
+                                font-weight: bold;
+                                color: white;
+                                font-size: .5em;
+                                border-radius: 15px;
+                                white-space: nowrap;
+                            }
+                        }
+                        .second-list{
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            flex-wrap: wrap;
+                            box-sizing: border-box;
+                            .user-code{
+                                width: 100%;
+                                box-sizing: border-box;
+                                font-size: 1.3rem;
+                                margin: .2rem 0;
+                                color: white;
+                            
+                            }
+                            p{
+                                font-weight: bold;
+                                color: white;
+                                margin: 0;
+                                font-size: .6em;
+                                line-height: 1.5rem;
+                            }
+                        }
+                      
+                    }
+                }
+            }
+        }
     }
 }

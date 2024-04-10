@@ -1,91 +1,82 @@
+{% extends "main/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
-    <title>KKP Luggage</title>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-logo">
-            <img src="{% static 'images/logo.png' %}" alt="">
-            <h3>admin</h3>
-        </div>
-        <div class="action">
-            
-            <a href="#" class="btn btn-download">Download Dataset</a>
-        </div>
-    </nav>
+{% block content %}
 
-    <div class="main-body">
-        <div class="main-container">
-            <div class="search-container">
-                <form action="">
-                    <input type="search" name="searchbox" id="" placeholder="Search Booking Code" autocomplete="off">
-                </form>
-            </div>
-            
-            <div class="bookings-container">
-                <div class="ticket-container">
-                    <div class="menu">
-                        <span class="menu-btn"><img src="{% static 'images/more.png' %}" alt=""></span>
-                        <div class="dropmenu">
-                            <a href="#" class="btn-delete">Delete ticket</a>
-                            <a href="#" class="btn-download">Download</a>
-                        </div>
-                    </div>
-                    <img class="QR-code-image" src="{% static 'images/QR.png' %}" alt="">
-                    <div class="text-section">
-                        <div class="first-list">
-                            <span class="tab" id="fullname">Asiamah Bernard</span>
-                            <span class="tab" id="index_number">3359322</span>
-                            <span class="tab" id="location">Brunei Complex</span>
-                        </div>
-                        <div class="second-list">
-                            <h2 class="user-code">AsiamahXTY8758</h2>
-                            <p id="phone_number">+233557311180</p>
-                            <p id="luggage_number">15 luggage items</p>
-                            <p id="booking-time">Booking: time: 12:40am</p>
-                        </div>
-                       
-                    </div>
+    <div class="search-container">
+        <form action="">
+            <input type="search" name="searchbox" id="" placeholder="Search Booking Code" autocomplete="off">
+        </form>
+    </div>
+    
+    <div class="bookings-container">
+        <div class="ticket-container">
+            <div class="menu">
+                <span class="menu-btn"><i class='bx bx-dots-vertical-rounded' ></i></span>
+                <div class="dropmenu">
+                    <a href="#" class="btn-delete"><span>Delete ticket</span> <i class="bx bx-trash"></i></a>
+                    <a href="#" class="btn-download"><span>Download</span><i class="bx bx-download"></i></a>
                 </div>
-                <div class="ticket-container">
-                    <div class="menu">
-                        <span class="menu-btn"><img src="{% static 'images/more.png' %}" alt=""></span>
-                        <div class="dropmenu">
-                            <a href="#" class="btn-delete">Delete ticket</a>
-                            <a href="#" class="btn-download">Download</a>
-                        </div>
-                    </div>
-                    <img class="QR-code-image" src="{% static 'images/QR.png' %}" alt="">
-                    <div class="text-section">
-                        <div class="first-list">
-                            <span class="tab" id="fullname">Asiamah Bernard</span>
-                            <span class="tab" id="index_number">3359322</span>
-                            <span class="tab" id="location">Brunei Complex</span>
-                        </div>
-                        <div class="second-list">
-                            <h2 class="user-code">AsiamahXTY8758</h2>
-                            <p id="phone_number">+233557311180</p>
-                            <p id="luggage_number">15 luggage items</p>
-                            <p id="booking-time">Booking: time: 12:40am</p>
-                        </div>
-                       
-                    </div>
-                </div>
-            
             </div>
-          </div>
+            <img class="QR-code-image" src="{% static 'images/QR.png' %}" alt="">
+            <div class="text-section">
+                <div class="first-list">
+                    <span class="tab" id="fullname">Asiamah Bernard</span>
+                    <span class="tab" id="index_number">3359322</span>
+                    <span class="tab" id="location">Brunei Complex</span>
+                </div>
+                <div class="second-list">
+                    <h2 class="user-code">AsiamahXTY8758</h2>
+                    <p id="phone_number">+233557311180</p>
+                    <p id="luggage_number">15 luggage items</p>
+                    <p id="booking-time">Booking: time: 12:40am</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="ticket-container">
+            <div class="menu">
+                <span class="menu-btn"><i class='bx bx-dots-vertical-rounded' ></i></span>
+                <div class="dropmenu">
+                    <a href="#" class="btn-delete"><span>Delete ticket</span> <i class="bx bx-trash"></i></a>
+                    <a href="#" class="btn-download"><span>Download</span><i class="bx bx-download"></i></a>
+                </div>
+            </div>
+            <img class="QR-code-image" src="{% static 'images/QR.png' %}" alt="">
+            <div class="text-section">
+                <div class="first-list">
+                    <span class="tab" id="fullname">Asiamah Bernard</span>
+                    <span class="tab" id="index_number">3359322</span>
+                    <span class="tab" id="location">Brunei Complex</span>
+                </div>
+                <div class="second-list">
+                    <h2 class="user-code">AsiamahXTY8758</h2>
+                    <p id="phone_number">+233557311180</p>
+                    <p id="luggage_number">15 luggage items</p>
+                    <p id="booking-time">Booking: time: 12:40am</p>
+                </div>
+                
+            </div>
+        </div>
+        
+    
     </div>
 
-    <footer class="footer">
-        <span>Copyright &copy; 2024, International KKP</span>
-    </footer>
-</body>
-</html>
+    
+    <script>
+        const menuBtn = document.querySelectorAll(".menu-btn")
+        menuBtn.forEach(function(btn){
+            btn.addEventListener('click', function() {
+                
+                var dropmenu = this.closest('.menu').querySelector('.dropmenu');
+                // Toggle the visibility of the dropmenu
+
+                if (dropmenu.style.visibility === 'hidden') {
+                    dropmenu.style.visibility = 'visible';
+                } else {
+                    dropmenu.style.visibility = 'hidden';
+                }
+            })
+        })
+
+    </script>
+{% endblock content %}
