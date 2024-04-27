@@ -1,5 +1,5 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
@@ -64,12 +64,32 @@ def download_receipt(request, booking_code):
     else:
         return HttpResponse("Receipt not found", status=404)
 
-
+#Work on this
 @login_required(login_url="/login/")
-def adminpage(request):
-    return render(request, "main/admin.html")
+def dashboard(request):
+    bookings = Booking.objects.all()
+    qrcode_images = []
+    for booking in bookings:
+        qrcode_image = generate_qr_code(booking.booking_code)
+            # Since the booking code is generated automatically on save, you can access it after saving
+        qrcode_images += base64.b64encode(qrcode_image.getvalue()).decode()
+    context = {
+        "bookings": bookings,
+        "qrcode_images": qrcode_images
+    }
+    return render(request, "main/dashboard.html", context)
 
+def delete_booking(request, booking_id):
+    # Retrieve the booking object
+    booking = get_object_or_404(Booking, pk=booking_id)
 
+    if booking:
+        # If the request method is POST, it means the user has confirmed the deletion
+        booking.delete()
+        return redirect('adminpage')
+
+    # If the request method is not POST, render the confirmation template
+    return HttpResponse("Booking not found", status=404)
 
 
 def login_user(request):
