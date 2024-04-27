@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
 import base64
-
+from django.utils.encoding import smart_str
 from django.http import JsonResponse, HttpResponse
 from django.contrib import messages
 from .utils import generate_qr_code, generate_receipt
@@ -34,9 +34,11 @@ def bookingpage(request):
             qrcode_image = generate_qr_code(booking.booking_code)
             # Since the booking code is generated automatically on save, you can access it after saving
             qr_code_base64 = base64.b64encode(qrcode_image.getvalue()).decode()
+           
             context = {
                 "booking": booking,
-                "qrcode_image": qr_code_base64
+                "qrcode_image": qr_code_base64,
+
             }
 
 
@@ -51,6 +53,17 @@ def bookingpage(request):
 @login_required(login_url="/login/")
 def bookingsuccess(request):
     return render(request, "main/bookingsuccess.html")
+
+
+def download_receipt(request, booking_code):
+    receipt_pdf = generate_receipt(booking_code)
+    if receipt_pdf:
+        response = HttpResponse(receipt_pdf, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{smart_str(booking_code)}.pdf"'
+        return response
+    else:
+        return HttpResponse("Receipt not found", status=404)
+
 
 @login_required(login_url="/login/")
 def adminpage(request):

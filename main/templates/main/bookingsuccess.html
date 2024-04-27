@@ -22,7 +22,7 @@
                     <p id="booking-time">Booking time: {{booking.booking_time}}</p>
                 </div>
                 <div class="action-section">
-                    <a href="#" class="btn btn-download-ticket">Download Booking Ticket</a>
+                    <a href="{% url 'download_receipt' booking.booking_code %}" download class="btn btn-download-ticket">Download Booking Ticket</a>
                 </div>
             </div>
         </div>

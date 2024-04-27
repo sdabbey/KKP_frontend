@@ -45,13 +45,14 @@ def generate_receipt(booking_code):
             c = canvas.Canvas(buffer, pagesize=letter)
 
             # Add booking details to the PDF
-            c.drawString(100, 700, f"Booking Code: {booking.booking_code}")
-            c.drawString(100, 680, f"Name: {booking.full_name}")
-            c.drawString(100, 660, f"Luggage Number: {booking.luggage_number}")
+            c.drawString(220, 700, f"Booking Code: {booking.booking_code}")
+            c.drawString(220, 680, f"Name: {booking.full_name}")
+            c.drawString(220, 660, f"Phone Number: {booking.phone_number}")
+            c.drawString(220, 640, f"Luggage Quantity: {booking.luggage_number}")
 
             # Embed QR code image into the PDF
             qr_code_image_reader = ImageReader(qr_code_image)
-            c.drawImage(qr_code_image_reader, 100, 600, width=100, height=100)
+            c.drawImage(qr_code_image_reader, 100, 620, width=100, height=100)
 
             # Save the PDF
             c.showPage()
