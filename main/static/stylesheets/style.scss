@@ -333,6 +333,14 @@ body{
             height: 20%;
             box-sizing: border-box;
             form{
+                .search-btn{
+                    padding: 1.2rem;
+                    background-color: black;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
                 input{
                     width: 535px;
                     height: 55px;
@@ -343,6 +351,7 @@ body{
                     text-align: center;
                     color: white;
                     font-size: 1em;
+                    padding: 1rem;
                     &::-webkit-search-cancel-button{
                         display: none;
                     }
@@ -928,17 +937,25 @@ body{
                 height: fit-content;
                 width: 100%;
                 
-                
+                .search-btn{
+                    padding: 1.2rem 1rem;
+                    background-color: black;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
                 form{
+                    display: flex;
                     width: 95%;
                     input{
-                        width: 100%;
+                        width: 80%;
                         height: 55px;
                         border-radius: 9px;
                         background: #2d2d2d;
                         outline: none;
                         border: none;
-                        text-align: center;
+                        text-align: start;
                         color: white;
                         font-size: 1em;
                         &::-webkit-search-cancel-button{

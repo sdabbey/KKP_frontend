@@ -3,33 +3,76 @@
 {% block content %}
 
     <div class="search-container">
-        <form action="">
-            <input type="search" name="searchbox" id="" placeholder="Search Booking Code" autocomplete="off">
+        <form action="{% url 'search_bookings' %}" method="GET">
+            <input type="search" name="searchbox" placeholder="{% if search_query %}
+            {{search_query}}
+            {% else %}
+            Search by Name
+        {% endif %}" autocomplete="off">
+            <button class="search-btn" type="submit">Search</button>
         </form>
     </div>
     
-    <div class="bookings-container">
-        {% for booking in bookings %}
+    {% if search_results %}
+    <h2>Search Results for "{{ search_query }}"</h2>
+    
+        
+        <div class="bookings-container">
+            {% for data in search_results %}
+            <div class="ticket-container">
+                <div class="menu">
+                    <span class="menu-btn"><i class='bx bx-dots-vertical-rounded' ></i></span>
+                    <div class="dropmenu">
+                        <a href="{% url 'delete_booking' data.booking.id %}" class="btn-delete"><span>Delete ticket</span> <i class="bx bx-trash"></i></a>
+                        <a href="{% url 'download_receipt' data.booking.booking_code %}" class="btn-download" download><span>Download</span><i class="bx bx-download"></i></a>
+                    </div>
+                </div>
+                <img class="QR-code-image" src="data:image/png;base64,{{ data.qr_code}}" alt="">
+                <div class="text-section">
+                    <div class="first-list">
+                        <span class="tab" id="fullname">{{data.booking.full_name}}</span>
+                        <span class="tab" id="index_number">{{data.booking.index_number}}</span>
+                        <span class="tab" id="location">{{data.booking.location}}</span>
+                    </div>
+                    <div class="second-list">
+                        <h2 class="user-code">{{data.booking.booking_code}}</h2>
+                        <p id="phone_number">{{data.booking.phone_number}}</p>
+                        <p id="luggage_number">{{data.booking.luggage_number}} luggage items</p>
+                        <p id="booking-time">Booking time:  {{data.booking.booking_time}}</p>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+            
+            
+        
+        </div>
+       
+  
+      {% else %}
+      <div class="bookings-container">
+        {% for data in qrcode_data %}
         <div class="ticket-container">
             <div class="menu">
                 <span class="menu-btn"><i class='bx bx-dots-vertical-rounded' ></i></span>
                 <div class="dropmenu">
-                    <a href="{% url 'delete_booking' booking.id %}" class="btn-delete"><span>Delete ticket</span> <i class="bx bx-trash"></i></a>
-                    <a href="#" class="btn-download"><span>Download</span><i class="bx bx-download"></i></a>
+                    <a href="{% url 'delete_booking' data.booking.id %}" class="btn-delete"><span>Delete ticket</span> <i class="bx bx-trash"></i></a>
+                    <a href="{% url 'download_receipt' data.booking.booking_code %}" class="btn-download" download><span>Download</span><i class="bx bx-download"></i></a>
                 </div>
             </div>
-            <img class="QR-code-image" src="data:image/png;base64,{{ qrcode_image}}" alt="">
+            <img class="QR-code-image" src="data:image/png;base64,{{ data.qrcode}}" alt="">
             <div class="text-section">
                 <div class="first-list">
-                    <span class="tab" id="fullname">{{booking.full_name}}</span>
-                    <span class="tab" id="index_number">{{booking.index_number}}</span>
-                    <span class="tab" id="location">{{booking.location}}</span>
+                    <span class="tab" id="fullname">{{data.booking.full_name}}</span>
+                    <span class="tab" id="index_number">{{data.booking.index_number}}</span>
+                    <span class="tab" id="location">{{data.booking.location}}</span>
                 </div>
                 <div class="second-list">
-                    <h2 class="user-code">{{booking.booking_code}}</h2>
-                    <p id="phone_number">{{booking.phone_number}}</p>
-                    <p id="luggage_number">{{booking.luggage_number}} luggage items</p>
-                    <p id="booking-time">Booking time:  {{booking.booking_time}}</p>
+                    <h2 class="user-code">{{data.booking.booking_code}}</h2>
+                    <p id="phone_number">{{data.booking.phone_number}}</p>
+                    <p id="luggage_number">{{data.booking.luggage_number}} luggage items</p>
+                    <p id="booking-time">Booking time:  {{data.booking.booking_time}}</p>
                 </div>
                 
             </div>
@@ -39,6 +82,7 @@
         
     
     </div>
+    {% endif %}
 
     
     <script>

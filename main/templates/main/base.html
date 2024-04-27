@@ -54,7 +54,7 @@
             <div class="list-tabs">
                 <a href="{% url 'bookingpage' %}" class="tab {% if request.path == '/' %}active{% endif %}">Booking</a>
                 <a href="{% url 'adminpage' %}" class="tab {% if request.path == '/dashboard/' %}active{% endif %}">Dashboard</a>
-                <a href="#" class="tab btn-download">Download Dataset</a>
+                <a href="{% url 'download_all_bookings' %}" download class="tab btn-download">Download Dataset</a>
  
             </div>
             <div class="action">
