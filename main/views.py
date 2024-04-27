@@ -1,9 +1,13 @@
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
-from django.http import JsonResponse
+import base64
+
+from django.http import JsonResponse, HttpResponse
 from django.contrib import messages
+from .utils import generate_qr_code, generate_receipt
 # Create your views here.
 
 @login_required(login_url="/login/")
@@ -27,10 +31,14 @@ def bookingpage(request):
                 luggage_number=luggage_number
             )
 
+            qrcode_image = generate_qr_code(booking.booking_code)
             # Since the booking code is generated automatically on save, you can access it after saving
+            qr_code_base64 = base64.b64encode(qrcode_image.getvalue()).decode()
             context = {
-                "booking": booking
+                "booking": booking,
+                "qrcode_image": qr_code_base64
             }
+
 
             return render(request, "main/bookingsuccess.html", context)
         except Exception as e:
@@ -69,3 +77,6 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+

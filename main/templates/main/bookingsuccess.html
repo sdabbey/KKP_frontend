@@ -7,19 +7,19 @@
     <div class="booking-ticket-suc">
         <div class="ticket-container">
             <div class="image-container">
-                <img class="QR-code-image" src="{% static 'images/QR.png' %}" alt="">
+                <img class="QR-code-image" src="data:image/png;base64,{{ qrcode_image}}" alt="">
             </div>
             <div class="text-section">
                 <div class="first-list">
-                    <span class="tab" id="fullname">Asiamah Bernard</span>
-                    <span class="tab" id="index_number">3359322</span>
-                    <span class="tab" id="location">Brunei Complex</span>
+                    <span class="tab" id="fullname">{{booking.full_name}}</span>
+                    <span class="tab" id="index_number">{{booking.index_number}}</span>
+                    <span class="tab" id="location">{{booking.location}}</span>
                 </div>
                 <div class="second-list">
-                    <h2 class="user-code">AsiamahXTY8758</h2>
-                    <p id="phone_number">+233557311180</p>
-                    <p id="luggage_number">15 luggage items</p>
-                    <p id="booking-time">Booking: time: 12:40am</p>
+                    <h2 class="user-code">{{booking.booking_code}}</h2>
+                    <p id="phone_number">{{booking.phone_number}}</p>
+                    <p id="luggage_number">{{booking.luggage_number}} luggage items</p>
+                    <p id="booking-time">Booking time: {{booking.booking_time}}</p>
                 </div>
                 <div class="action-section">
                     <a href="#" class="btn btn-download-ticket">Download Booking Ticket</a>
