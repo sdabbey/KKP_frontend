@@ -12,7 +12,7 @@ idna==3.7
 phonenumbers==8.13.35
 pillow==10.3.0
 psycopg==3.1.16
-psycopg2-binary==2.9.6
+
 pypng==0.20220715.0
 python-dotenv==1.0.1
 qrcode==7.4.2
