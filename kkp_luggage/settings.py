@@ -84,16 +84,17 @@ WSGI_APPLICATION = 'kkp_luggage.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default':{
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'defaultdb',
-        'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_nc0hWulshBuyKnvVDoj',
-        'HOST': 'giftos-sdabbey.a.aivencloud.com',
-        'PORT': '24545',
-    }
+#    'default':{
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'defaultdb',
+#         'USER': 'avnadmin',
+#         'PASSWORD': 'AVNS_nc0hWulshBuyKnvVDoj',
+#         'HOST': 'giftos-sdabbey.a.aivencloud.com',
+#         'PORT': '24545',
+#     }
 }
 
+DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
