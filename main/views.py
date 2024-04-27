@@ -2,12 +2,43 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
+from django.http import JsonResponse
 from django.contrib import messages
 # Create your views here.
 
 @login_required(login_url="/login/")
 def bookingpage(request):
-    return render(request, "main/bookingpage.html")
+    if request.method == 'POST':
+        
+        try:
+            data = request.POST
+            full_name = data.get('full_name')
+            index_number = data.get('index_number')
+            phone_number = data.get('phone_number')
+            location = data.get('location')
+            luggage_number = data.get('luggage_number')
+
+            # Create a new Booking instance
+            booking = Booking.objects.create(
+                full_name=full_name,
+                index_number=index_number,
+                phone_number=phone_number,
+                location=location,
+                luggage_number=luggage_number
+            )
+
+            # Since the booking code is generated automatically on save, you can access it after saving
+            context = {
+                "booking": booking
+            }
+
+            return render(request, "main/bookingsuccess.html", context)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+
+    else:
+        
+        return render(request, "main/bookingpage.html")
 
 @login_required(login_url="/login/")
 def bookingsuccess(request):

@@ -4,12 +4,13 @@
 <div class="booking-container">
   <span class="book-title-btn"><img src="{% static 'images/sparkling.png' %}" alt=""> Booking <img src="{% static 'images/suitcase.png' %}" alt=""></span>
   <h4>Book a Customer</h4>
-  <div class="booking-form">
+  <form class="booking-form" method="post">
+    {% csrf_token %}
       <div class="input-group">
-
-        <input type="text" name="name" id="name" placeholder="Full Name" autocomplete="off">
-        <label for="name">Full Name</label>
+        <input type="text" name="full_name" id="full_name" placeholder="Full Name" autocomplete="off">
+        <label for="full_name">Full Name</label>
       </div>
+
      <div class="input-group">
        <input type="number" name="index_number" id="index_number" placeholder="Index Number" autocomplete="off">
        <label for="index_number">Index Number</label>
@@ -37,7 +38,7 @@
         <label for="luggage_number">Number of Luggages</label>
       
       </div>
-      <a href="{% url 'bookingsuccess' %}"class="book-btn">Book Customer</a>
-  </div>
+      <button type="submit" class="book-btn">Book Customer</button>
+  </form>
 </div>
 {% endblock content %}
