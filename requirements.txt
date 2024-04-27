@@ -11,7 +11,6 @@ django-qrcode==0.3
 idna==3.7
 phonenumbers==8.13.35
 pillow==10.3.0
-pkg_resources==0.0.0
 psycopg==3.1.16
 psycopg2-binary==2.9.6
 pypng==0.20220715.0
