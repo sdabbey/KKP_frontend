@@ -39,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Booking(models.Model):
     full_name = models.CharField(max_length=200)
-    index_number = models.IntegerField(max_length=8)
+    index_number = models.IntegerField()
     phone_number = PhoneNumberField(null=False, blank=False)
     opt_phone_number = PhoneNumberField(null=True, blank=True)
     location = models.CharField(max_length=150)
