@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'kkp_luggage.wsgi.app'
+WSGI_APPLICATION = 'kkp_luggage.wsgi.application'
 
 
 # Database
