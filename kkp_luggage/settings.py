@@ -31,7 +31,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'kkp-database-96f1cbcee684.herokuapp.com']
-
+CSRF_TRUSTED_ORIGINS = ['https://kkp-database-96f1cbcee684.herokuapp.com']
 
 # Application definition
 
