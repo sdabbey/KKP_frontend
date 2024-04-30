@@ -21,7 +21,7 @@ def bookingpage(request):
         try:
             data = request.POST
             full_name = data.get('full_name')
-            index_number = data.get('index_number')
+            amount = data.get('amount')
             phone_number = data.get('phone_number')
             location = data.get('location')
             luggage_number = data.get('luggage_number')
@@ -29,7 +29,7 @@ def bookingpage(request):
             # Create a new Booking instance
             booking = Booking.objects.create(
                 full_name=full_name,
-                index_number=index_number,
+                amount=amount,
                 phone_number=phone_number,
                 location=location,
                 luggage_number=luggage_number
