@@ -1,1 +1,1 @@
-web: gunicorn kkp_luggage.wsgi
+web: python manage.py migrate && gunicorn kkp_luggage.wsgi
