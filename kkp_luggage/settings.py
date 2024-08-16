@@ -88,17 +88,17 @@ WSGI_APPLICATION = 'kkp_luggage.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-'default':{
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'vIcZUzLqUIRPXFfnmLFwJIZLlLsKioaB',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '16754',
-    }
+# 'default':{
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'vIcZUzLqUIRPXFfnmLFwJIZLlLsKioaB',
+#         'HOST': 'roundhouse.proxy.rlwy.net',
+#         'PORT': '16754',
+#     }
 }
 
-# DATABASES['default'] = dj_database_url.config(default=os.getenv('DATABASE_URL'))
+DATABASES['default'] = dj_database_url.config(default=os.getenv('DATABASE_URL'))
 DATABASES['default']['OPTIONS'] = {
     'sslmode': 'require',
 }
