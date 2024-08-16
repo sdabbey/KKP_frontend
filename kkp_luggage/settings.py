@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'main.User'
-
+LOGIN_REDIRECT_URL = 'bookingpage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
