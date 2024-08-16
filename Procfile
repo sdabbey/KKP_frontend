@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn kkp_luggage.wsgi
+web: python manage.py migrate && python manage.py collectstatic --no-input && gunicorn kkp_luggage.wsgi
