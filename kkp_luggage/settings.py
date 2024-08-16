@@ -88,10 +88,12 @@ WSGI_APPLICATION = 'kkp_luggage.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', ''),
+        conn_max_age=600,  # Keep connection alive for 10 minutes
+        ssl_require=True   # Enforce SSL connection for security
+    )
 }
-
-DATABASES['default'] = dj_database_url.config(os.getenv('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
